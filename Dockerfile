@@ -4,6 +4,7 @@ RUN mkdir /opt/oracle
     
 ADD instantclient-basic-linux.zip /opt/oracle
 ADD instantclient-sdk-linux.zip /opt/oracle
+
 ENV LD_LIBRARY_PATH  /opt/oracle/instantclient_19_6:${LD_LIBRARY_PATH}
 
 RUN apt-get update && apt-get install -y libldb-dev \
