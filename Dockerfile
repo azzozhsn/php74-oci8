@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y libldb-dev \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
     &&  rm -rf /var/lib/{apt,dpkg,cache,log}/ \
-    && docker-php-ext-install -j$(nproc) ldap gd \
+    && docker-php-ext-install -j$(nproc) ldap gd calendar \
     && cd /opt/oracle \
     && unzip /opt/oracle/instantclient-basic-linux.zip -d /opt/oracle \
     && unzip /opt/oracle/instantclient-sdk-linux.zip -d /opt/oracle \
