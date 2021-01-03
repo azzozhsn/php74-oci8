@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y libldb-dev libmagickwand-dev \
     && unzip /opt/oracle/instantclient-basic-linux.zip -d /opt/oracle \
     && unzip /opt/oracle/instantclient-sdk-linux.zip -d /opt/oracle \
     && rm -rf /opt/oracle/*.zip \
-    && echo 'instantclient,/opt/oracle/instantclient_19_6/' | pecl install oci8 \
+    && echo 'instantclient,/opt/oracle/instantclient_19_6/' | pecl install oci8-2.2.0 \
     && docker-php-ext-enable oci8 \
     && docker-php-ext-configure pdo_oci --with-pdo-oci=instantclient,/opt/oracle/instantclient_19_6,19.6 \
     && docker-php-ext-install pdo_oci \
