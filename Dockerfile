@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y libldb-dev libmagickwand-dev \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
     &&  rm -rf /var/lib/{apt,dpkg,cache,log}/ \
-    && docker-php-ext-install -j$(nproc) ldap gd calendar imagick \
+    && docker-php-ext-install -j$(nproc) ldap gd calendar \
     && cd /opt/oracle \
     && unzip /opt/oracle/instantclient-basic-linux.zip -d /opt/oracle \
     && unzip /opt/oracle/instantclient-sdk-linux.zip -d /opt/oracle \
@@ -28,4 +28,6 @@ RUN apt-get update && apt-get install -y libldb-dev libmagickwand-dev \
     && docker-php-ext-enable oci8 \
     && docker-php-ext-configure pdo_oci --with-pdo-oci=instantclient,/opt/oracle/instantclient_19_6,19.6 \
     && docker-php-ext-install pdo_oci \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
