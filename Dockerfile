@@ -7,7 +7,7 @@ ADD instantclient-sdk-linux.zip /opt/oracle
 
 ENV LD_LIBRARY_PATH  /opt/oracle/instantclient_19_6:${LD_LIBRARY_PATH}
 
-RUN apt-get update && apt-get install -y libldb-dev imagemagick \
+RUN apt-get update && apt-get install -y libldb-dev libmagickwand-dev \
         libldap2-dev \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
