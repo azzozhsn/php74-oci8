@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y libldb-dev libmagickwand-dev \
     && echo 'instantclient,/opt/oracle/instantclient_19_6/' | pecl install oci8-2.2.0 \
     && docker-php-ext-enable oci8 \
     && docker-php-ext-configure pdo_oci --with-pdo-oci=instantclient,/opt/oracle/instantclient_19_6,19.6 \
-    && docker-php-ext-install pdo_oci \
+    && docker-php-ext-install pdo_oci pdo_mysql \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
