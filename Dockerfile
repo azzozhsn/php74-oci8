@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y libldb-dev libmagickwand-dev \
         curl \
         unzip \
         libaio1 \
+        libxml2-dev \
         wget \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
@@ -31,4 +32,5 @@ RUN apt-get update && apt-get install -y libldb-dev libmagickwand-dev \
     && docker-php-ext-install pdo_oci pdo_mysql \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
+    && docker-php-ext-install soap \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
